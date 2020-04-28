@@ -13,7 +13,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-   /* 'indent': 'off'*/
+    'indent': 'off'
     /*"semi": [2, "always"],//语句强制分号结尾*/
   }
 }

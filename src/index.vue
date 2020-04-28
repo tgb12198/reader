@@ -1,21 +1,5 @@
 <template>
   <div class="ebook">
-    <!--<div v-show="isShowTitleAndMenu" class="title-wrapper">
-      <div class="left">
-        <span class="icon-back icon"></span>
-      </div>
-      <div class="right">
-        <div class="icon-wrapper">
-          <span class="icon-cart icon"></span>
-        </div>
-        <div class="icon-wrapper">
-          <span class="icon-person icon"></span>
-        </div>
-        <div class="icon-wrapper">
-          <span class="icon-more icon"></span>
-        </div>
-      </div>
-    </div>-->
     <title-bar :isShowTitleAndMenu="isShowTitleAndMenu"></title-bar>
     <div class="read-wrapper">
       <div id="read"></div>
@@ -25,20 +9,6 @@
         <div class="right" @click="nextPage"></div>
       </div>
     </div>
-    <!--<div v-show="isShowTitleAndMenu" class="menu-wrapper">
-      <div class="icon-wrapper">
-        <span class="icon-menu icon"></span>
-      </div>
-      <div class="icon-wrapper">
-        <span class="icon-progress icon"></span>
-      </div>
-      <div class="icon-wrapper">
-        <span class="icon-bright icon"></span>
-      </div>
-      <div class="icon-wrapper">
-        <span class="icon-A icon"></span>
-      </div>
-    </div>-->
     <menu-bar :isShowTitleAndMenu="isShowTitleAndMenu"></menu-bar>
   </div>
 </template>
@@ -109,6 +79,7 @@ export default {
 
         .left {
           flex: 0 0 px2rem(100);
+          @include center
         }
 
         .center {

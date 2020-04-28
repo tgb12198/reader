@@ -1,18 +1,20 @@
 <template>
-  <div v-show="isShowTitleAndMenu" class="menu-wrapper">
-    <div class="icon-wrapper">
-      <span class="icon-menu icon"></span>
+  <transition name="slide-up">
+    <div v-show="isShowTitleAndMenu" class="menu-wrapper">
+      <div class="icon-wrapper">
+        <span class="icon-menu icon"></span>
+      </div>
+      <div class="icon-wrapper">
+        <span class="icon-progress icon"></span>
+      </div>
+      <div class="icon-wrapper">
+        <span class="icon-bright icon"></span>
+      </div>
+      <div class="icon-wrapper">
+        <span class="icon-A icon"></span>
+      </div>
     </div>
-    <div class="icon-wrapper">
-      <span class="icon-progress icon"></span>
-    </div>
-    <div class="icon-wrapper">
-      <span class="icon-bright icon"></span>
-    </div>
-    <div class="icon-wrapper">
-      <span class="icon-A icon"></span>
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -42,6 +44,18 @@ export default {
     .icon-wrapper {
       flex: 1;
       @include center;
+    }
+
+    &.slide-up-enter, &.slide-up-leave-to {
+      transform: translate3d(0, 100%, 0);
+    }
+
+    &.slide-up-enter-to, &.slide-up-leave {
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.slide-up-enter-active, &.slide-up-leave-active {
+      transition: all linear 0.4s;
     }
   }
 </style>

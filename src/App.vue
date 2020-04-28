@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <style>
-  width: 100%;
-  height: 100%;
-  background: #7d8188;
-  overflow: hidden;
+  #app {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow: hidden;
+  }
 </style>

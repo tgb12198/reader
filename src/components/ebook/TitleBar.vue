@@ -1,20 +1,22 @@
 <template>
-  <div class="title-wrapper" v-show="isShowTitleAndMenu">
-    <div class="left">
-      <span class="icon-back icon"></span>
+  <transition name="slide-down">
+    <div class="title-wrapper" v-show="isShowTitleAndMenu">
+      <div class="left">
+        <span class="icon-back icon"></span>
+      </div>
+      <div class="right">
+        <div class="icon-wrapper">
+          <span class="icon-cart icon"></span>
+        </div>
+        <div class="icon-wrapper">
+          <span class="icon-person icon"></span>
+        </div>
+        <div class="icon-wrapper">
+          <span class="icon-more icon"></span>
+        </div>
+      </div>
     </div>
-    <div class="right">
-      <div class="icon-wrapper">
-        <span class="icon-cart icon"></span>
-      </div>
-      <div class="icon-wrapper">
-        <span class="icon-person icon"></span>
-      </div>
-      <div class="icon-wrapper">
-        <span class="icon-more icon"></span>
-      </div>
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -59,6 +61,18 @@ export default {
 
         @include center;
       }
+    }
+
+    &.slide-down-enter, &.slide-down-leave-to {
+      transform: translate3d(0, -100%, 0);
+    }
+
+    &.slide-down-enter-to, &.slide-down-leave {
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.slide-down-enter-active, &.slide-down-leave-active {
+      transition: all linear 0.4s;
     }
   }
 </style>
