@@ -9,7 +9,7 @@
         <div class="right" @click="nextPage"></div>
       </div>
     </div>
-    <menu-bar :isShowTitleAndMenu="isShowTitleAndMenu"></menu-bar>
+    <menu-bar :isShowTitleAndMenu="isShowTitleAndMenu" ref="menuBar"></menu-bar>
   </div>
 </template>
 
@@ -49,6 +49,9 @@ export default {
     },
     toggleTitleAndMenu () {
       this.isShowTitleAndMenu = !this.isShowTitleAndMenu
+      if (!this.isShowTitleAndMenu) {
+        this.$refs.menuBar.hideSetting()
+      }
     }
   },
   mounted () {

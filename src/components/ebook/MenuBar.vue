@@ -1,20 +1,28 @@
 <template>
-  <transition name="slide-up">
-    <div v-show="isShowTitleAndMenu" class="menu-wrapper">
-      <div class="icon-wrapper">
-        <span class="icon-menu icon"></span>
+  <div class="menu-bar">
+    <transition name="slide-up">
+      <div v-show="isShowTitleAndMenu" class="menu-wrapper"
+           :class="{'hide-box-shadow':ifSettingShow||!isShowTitleAndMenu}">
+        <div class="icon-wrapper">
+          <span class="icon-menu icon"></span>
+        </div>
+        <div class="icon-wrapper">
+          <span class="icon-progress icon"></span>
+        </div>
+        <div class="icon-wrapper">
+          <span class="icon-bright icon"></span>
+        </div>
+        <div class="icon-wrapper">
+          <span class="icon-A icon" @click="showSetting"></span>
+        </div>
       </div>
-      <div class="icon-wrapper">
-        <span class="icon-progress icon"></span>
+    </transition>
+    <transition name="slide-up">
+      <div class="setting-wrapper" v-show="ifSettingShow">
+        <div class="setting-font-size"></div>
       </div>
-      <div class="icon-wrapper">
-        <span class="icon-bright icon"></span>
-      </div>
-      <div class="icon-wrapper">
-        <span class="icon-A icon"></span>
-      </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -24,6 +32,19 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  data () {
+    return {
+      ifSettingShow: false
+    }
+  },
+  methods: {
+    showSetting () {
+      this.ifSettingShow = !this.ifSettingShow
+    },
+    hideSetting () {
+      this.ifSettingShow = false
+    }
   }
 }
 </script>
@@ -31,31 +52,39 @@ export default {
 <style lang="scss" scope>
   @import "../../assets/styles/global";
 
-  .menu-wrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: px2rem(48);
-    z-index: 101;
-    box-shadow: 0 px2rem(-8) px2rem(8) rgba(0, 0, 0, 0.15);
-    display: flex;
+  .menu-bar {
+    .menu-wrapper {
+      position: absolute;
+      display: flex;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: px2rem(48);
+      z-index: 101;
+      box-shadow: 0 px2rem(-8) px2rem(8) rgba(0, 0, 0, 0.15);
 
-    .icon-wrapper {
-      flex: 1;
-      @include center;
+      &.hide-box-shadow {
+        box-shadow: none;
+      }
+
+      .icon-wrapper {
+        flex: 1;
+        @include center;
+      }
     }
 
-    &.slide-up-enter, &.slide-up-leave-to {
-      transform: translate3d(0, 100%, 0);
-    }
+    .setting-wrapper {
+      position: absolute;
+      left: 0;
+      bottom: px2rem(48);
+      width: 100%;
+      height: px2rem(60);
+      background: white;
+      box-shadow: 0 px2rem(-8) px2rem(8) rgba(0, 0, 0, 0.15);
 
-    &.slide-up-enter-to, &.slide-up-leave {
-      transform: translate3d(0, 0, 0);
-    }
+      .setting-font-size {
 
-    &.slide-up-enter-active, &.slide-up-leave-active {
-      transition: all linear 0.4s;
+      }
     }
   }
 </style>

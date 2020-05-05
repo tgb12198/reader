@@ -62,17 +62,5 @@ export default {
         @include center;
       }
     }
-
-    &.slide-down-enter, &.slide-down-leave-to {
-      transform: translate3d(0, -100%, 0);
-    }
-
-    &.slide-down-enter-to, &.slide-down-leave {
-      transform: translate3d(0, 0, 0);
-    }
-
-    &.slide-down-enter-active, &.slide-down-leave-active {
-      transition: all linear 0.4s;
-    }
   }
 </style>
