@@ -9,7 +9,7 @@
         <div class="right" @click="nextPage"></div>
       </div>
     </div>
-    <menu-bar :isShowTitleAndMenu="isShowTitleAndMenu" ref="menuBar"></menu-bar>
+    <menu-bar :isShowTitleAndMenu="isShowTitleAndMenu" :fontSizeList="fontSizeList" ref="menuBar"></menu-bar>
   </div>
 </template>
 
@@ -23,7 +23,8 @@ global.ePub = Epub
 export default {
   data () {
     return {
-      isShowTitleAndMenu: false
+      isShowTitleAndMenu: false,
+      fontSizeList: [{ fontSize: 12 }, { fontSize: 14 }, { fontSize: 16 }, { fontSize: 18 }, { fontSize: 20 }, { fontSize: 22 }, { fontSize: 24 }]
     }
   },
   methods: {
